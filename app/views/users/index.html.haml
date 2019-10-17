@@ -1,0 +1,8 @@
+%h1 ユーザー一覧
+- @users.each do |user|
+  - if user.name?
+    %a{:href => "/users/#{user.id}"}= user.name
+  - else
+    noname
+  %hr/
+= link_to "ホームへ戻る", posts_path
