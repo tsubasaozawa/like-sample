@@ -9,13 +9,7 @@
 = @post.content
 %h3
   いいね件数: #{@post.likes.count}
-- if current_user.already_liked?(@post)
-  = link_to post_like_path(@post), method: :delete do
-    = fa_icon "heart", class: "liked-icon"
-- else
-  = link_to post_likes_path(@post), method: :post do
-    -# link_toでデータベースに情報を入れる際はmethod: :postを記載
-    = fa_icon "heart-o", class: "like-icon"
+= render "likes/likes", post: @post
 %h2 いいねしたユーザー
 - @post.liked_users.each do |user|
   - if user.name?

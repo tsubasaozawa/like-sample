@@ -1,0 +1,7 @@
+.like-btn{id: "like-btn-#{post.id}"}
+  - if current_user.already_liked?(post)
+    = link_to post_like_path(post,current_user), method: :delete, remote: true, class: "liked-icon" do
+      = fa_icon "heart"
+  - else
+    = link_to post_likes_path(post), method: :post, remote: true, class: "like-icon" do
+      = fa_icon "heart-o"
